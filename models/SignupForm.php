@@ -21,7 +21,7 @@ class SignupForm extends Model
             ['password_repeat', 'compare', 'compareAttribute' => 'password'],
         ];
     }
-    public function signUp(){
+    public function signUp():bool{
         $user = new User();
         $user->username = $this->username;
         $user->password = $this->password;

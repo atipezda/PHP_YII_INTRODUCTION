@@ -89,4 +89,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return self::findByUsername($this->username);
     }
+
+    public function findUserById($id){
+        return self::findOne($id);
+    }
 }

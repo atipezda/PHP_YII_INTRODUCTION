@@ -47,6 +47,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'article/<action:(index|create|delete)>' => 'article/<action>',
+                'article/<slug>' => 'article/view'
             ],
         ],
     ],
