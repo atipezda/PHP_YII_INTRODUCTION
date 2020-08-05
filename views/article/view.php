@@ -19,10 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h5>created by: <?php echo $model -> created_by ?></h5>
 
-    <?php if (Yii::$app->user->id === $model->id): ?>
+    <?php if (Yii::$app->user->id === $model->created_by): ?>
         <p>
-            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            <?= Html::a('Update', ['update', 'slug' => $model->slug], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Delete', ['delete', 'slug' => $model->slug], [
                 'class' => 'btn btn-danger',
                 'data' => [
                     'confirm' => 'Are you sure you want to delete this item?',
