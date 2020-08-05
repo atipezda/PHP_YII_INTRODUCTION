@@ -64,7 +64,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return self::findOne(["username" => $username]);
     }
-    public function validatePassword($password){
+
+    public function validatePassword($password)
+    {
         return $this->password === $password;
     }
 
@@ -81,5 +83,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         $this->auth_key === $authKey;
+    }
+
+    public function checkIfUserExists()
+    {
+        return self::findByUsername($this->username);
     }
 }

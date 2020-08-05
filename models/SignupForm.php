@@ -28,6 +28,12 @@ class SignupForm extends Model
         $user->access_token = \Yii::$app->security->generateRandomString();
         $user->auth_key = \Yii::$app->security->generateRandomString();
 
+        if($user->checkIfUserExists()){
+            \Yii::error("user already exists", VarDumper::dumpAsString($user->errors));
+            $this->addError("username", "that user already exists");
+            return false;
+        }
+
         if($user->save()){
             return true;
         }
